@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/alex/Code/Elfak/SysProg/Zadatak12/Zadatak12.csproj",
+      "projectUniqueName": "/home/alex/Code/Elfak/SysProg/Lab1/Zadatak12.csproj",
       "projectName": "Zadatak12",
-      "projectPath": "/home/alex/Code/Elfak/SysProg/Zadatak12/Zadatak12.csproj",
+      "projectPath": "/home/alex/Code/Elfak/SysProg/Lab1/Zadatak12.csproj",
       "packagesPath": "/home/alex/.nuget/packages/",
-      "outputPath": "/home/alex/Code/Elfak/SysProg/Zadatak12/obj/",
+      "outputPath": "/home/alex/Code/Elfak/SysProg/Lab1/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/alex/.nuget/NuGet/NuGet.Config"
