@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/alex/Code/Elfak/SysProg/SysProj1/SysProj1/SysProj1.csproj": {}
+    "/home/alex/Code/Elfak/SysProg/SysProj1/SysProj1.csproj": {}
   },
   "projects": {
-    "/home/alex/Code/Elfak/SysProg/SysProj1/SysProj1/SysProj1.csproj": {
+    "/home/alex/Code/Elfak/SysProg/SysProj1/SysProj1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/alex/Code/Elfak/SysProg/SysProj1/SysProj1/SysProj1.csproj",
+        "projectUniqueName": "/home/alex/Code/Elfak/SysProg/SysProj1/SysProj1.csproj",
         "projectName": "SysProj1",
-        "projectPath": "/home/alex/Code/Elfak/SysProg/SysProj1/SysProj1/SysProj1.csproj",
+        "projectPath": "/home/alex/Code/Elfak/SysProg/SysProj1/SysProj1.csproj",
         "packagesPath": "/home/alex/.nuget/packages/",
-        "outputPath": "/home/alex/Code/Elfak/SysProg/SysProj1/SysProj1/obj/",
+        "outputPath": "/home/alex/Code/Elfak/SysProg/SysProj1/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/alex/.nuget/NuGet/NuGet.Config"
