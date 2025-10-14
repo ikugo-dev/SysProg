@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SysProj3
+﻿namespace SysProj3
 {
     public class Repo
     {
@@ -12,7 +6,5 @@ namespace SysProj3
         public int Stars { get; set; }
         public float Size { get; set; }
         public int Forks { get; set; }
-
-
     }
 }

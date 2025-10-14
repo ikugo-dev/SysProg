@@ -3,7 +3,7 @@ using System.Security.Cryptography;
 
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
-app.UseFileServer();
+app.UseFileServer(); // iskomentarisite liniju ako zelite cist api bez index.html
 
 IResult ReturnResponse(string message, string returnType)
 {

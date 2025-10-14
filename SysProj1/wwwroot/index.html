@@ -15,10 +15,10 @@
 
     <script>
         async function hashFile() {
-            const name = document.getElementById('fileName').value;
-            const res = await fetch(`/api/${name}`);
+            const file = document.getElementById("fileName").value;
+            const res = await fetch(`/api/${file}`);
             const text = await res.text();
-            document.getElementById('output').textContent = text;
+            document.getElementById("output").textContent = text;
         }
     </script>
 </body>

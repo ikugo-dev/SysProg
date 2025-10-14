@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Enter the name of the desired topic</title>
+    <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/pretty-print-json@3.0/dist/css/pretty-print-json.css>
+    <script src=https://cdn.jsdelivr.net/npm/pretty-print-json@3.0/dist/pretty-print-json.min.js></script>
+</head>
+
+<body>
+    <h1>Github topic repo finder</h1>
+    <h2>Enter the name of the desired topic</h2>
+    <label>Topic:</label>
+    <input id="topicName" type="text" placeholder="Enter Github topic" />
+    <label>Page limit:</label>
+    <input id="pageLimit" type="number" value="1" min="1" />
+    <label>Results per page:</label>
+    <input id="perPage" type="number" value="100" min="1" max="100" />
+    <button onclick="getTopicRepos()">Search</button>
+    <pre id="output"></pre>
+
+    <script>
+        async function getTopicRepos() {
+            const topic = document.getElementById("topicName").value;
+            const pageLimit = document.getElementById("pageLimit").value;
+            const perPage = document.getElementById("perPage").value;
+            const outputEl = document.getElementById("output");
+
+            outputEl.textContent = "Waiting...";
+            const res = await fetch("/api?" +
+                new URLSearchParams({
+                    topic: topic,
+                    pageLimit: pageLimit,
+                    perPage: perPage
+                })
+            );
+            if (!res.ok) {
+                outputEl.textContent = `Error: ${res.statusText}`;
+                return;
+            }
+            const data = await res.json();
+            outputEl.innerHTML = prettyPrintJson.toHtml(data, {
+                lineNumbers: false,
+            });
+        }
+    </script>
+    <style>
+        pre {
+            font-size: 1.5rem;
+        }
+    </style>
+</body>
+
+</html>
