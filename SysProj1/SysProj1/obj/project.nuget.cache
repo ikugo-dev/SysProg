@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "mUtdHjJ6cGQXn0JGCwlHMRLcqSt3nBC6Oll3RRrByBKTTRkUFhbTuZstCH2jjf9tt6sZzbLszxwODfVm+EbHdA==",
+  "success": true,
+  "projectFilePath": "/home/alex/Code/Elfak/SysProg/SysProj1/SysProj1/SysProj1.csproj",
+  "expectedPackageFiles": [
+    "/home/alex/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.20/microsoft.aspnetcore.app.ref.8.0.20.nupkg.sha512"
+  ],
+  "logs": []
+}

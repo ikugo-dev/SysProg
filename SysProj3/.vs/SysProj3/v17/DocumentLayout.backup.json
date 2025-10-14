@@ -1,14 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\stvari\\Fax\\swe\\LabPeti\\PetiLab\\",
+  "WorkspaceRootPath": "D:\\stvari\\Fax\\swe\\LabPeti\\SysProj3\\SysProj3\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E19AC7DF-4545-4BEA-B364-45475485127D}|PetiLab\\SysProj3.csproj|d:\\stvari\\fax\\swe\\labpeti\\petilab\\petilab\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E19AC7DF-4545-4BEA-B364-45475485127D}|PetiLab\\SysProj3.csproj|solutionrelative:petilab\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E19AC7DF-4545-4BEA-B364-45475485127D}|PetiLab\\SysProj3.csproj|d:\\stvari\\fax\\swe\\labpeti\\petilab\\petilab\\repo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E19AC7DF-4545-4BEA-B364-45475485127D}|PetiLab\\SysProj3.csproj|solutionrelative:petilab\\repo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FBCCEEF0-3161-84F8-3454-DEDD5F2A264A}|SysProj3.csproj|d:\\stvari\\fax\\swe\\labpeti\\sysproj3\\sysproj3\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBCCEEF0-3161-84F8-3454-DEDD5F2A264A}|SysProj3.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,27 +22,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Repo.cs",
-              "DocumentMoniker": "D:\\stvari\\Fax\\swe\\LabPeti\\PetiLab\\PetiLab\\Repo.cs",
-              "RelativeDocumentMoniker": "PetiLab\\Repo.cs",
-              "ToolTip": "D:\\stvari\\Fax\\swe\\LabPeti\\PetiLab\\PetiLab\\Repo.cs",
-              "RelativeToolTip": "PetiLab\\Repo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-12T20:25:54.828Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "D:\\stvari\\Fax\\swe\\LabPeti\\PetiLab\\PetiLab\\Program.cs",
-              "RelativeDocumentMoniker": "PetiLab\\Program.cs",
-              "ToolTip": "D:\\stvari\\Fax\\swe\\LabPeti\\PetiLab\\PetiLab\\Program.cs",
-              "RelativeToolTip": "PetiLab\\Program.cs",
-              "ViewState": "AgIAAFcAAACAmZmZmdkiwGwAAADHAAAAAAAAAA==",
+              "DocumentMoniker": "D:\\stvari\\Fax\\swe\\LabPeti\\SysProj3\\SysProj3\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\stvari\\Fax\\swe\\LabPeti\\SysProj3\\SysProj3\\Program.cs*",
+              "RelativeToolTip": "Program.cs*",
+              "ViewState": "AgIAAGIAAAAAAAAAAAAAAG0AAABPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-12T13:13:20.599Z",
+              "WhenOpened": "2025-10-13T17:37:33.516Z",
               "EditorCaption": ""
             }
           ]

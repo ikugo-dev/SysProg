@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>File Hasher</title>
+</head>
+
+<body>
+    <h1>Hash a file</h1>
+    <h2>Write the name of the file in the projects directory</h2>
+    <input id="fileName" type="text" placeholder="Enter file path" />
+    <button onclick="hashFile()">Hash</button>
+    <h2 id="output"></h2>
+
+    <script>
+        async function hashFile() {
+            const name = document.getElementById('fileName').value;
+            const res = await fetch(`/api/${name}`);
+            const text = await res.text();
+            document.getElementById('output').textContent = text;
+        }
+    </script>
+</body>
+
+</html>
