@@ -5,10 +5,17 @@ using System.Net.Http.Headers;
 using System.Reactive.Concurrency;
 using System.Reactive.Linq;
 
-
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 app.UseFileServer(); // iskomentarisite liniju ako zelite cist api bez index.html
+
+Console.Write("Enter your GitHub API key: ");
+string? githubToken = Console.ReadLine()?.Trim();
+if (string.IsNullOrWhiteSpace(githubToken))
+{
+    Console.WriteLine("No API key entered. Exiting...");
+    return;
+}
 
 app.MapGet("/api", async (string topic, int pageLimit, int perPage) =>
 {
@@ -18,7 +25,7 @@ app.MapGet("/api", async (string topic, int pageLimit, int perPage) =>
     HttpClient client = new HttpClient();
     client.DefaultRequestHeaders.Accept.ParseAdd("application/vnd.github.mercy-preview+json");
     client.DefaultRequestHeaders.UserAgent.ParseAdd("SysProj3");
-    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "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");
+    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", githubToken);
     //PAT token used only for higher request limit
 
     List<string> urls = await Helper.GetLinks(client, topic, pageLimit, perPage);
@@ -26,26 +33,19 @@ app.MapGet("/api", async (string topic, int pageLimit, int perPage) =>
 
     var observable = urls
         .ToObservable()
-        .SelectMany((url, index) => Observable.Timer(TimeSpan.FromSeconds(3 * index))
-            // ukoliko se dobija 403 error, moze da se napravi da se unosi koliki razmak izmedju taskova u kom slucaju je red suvisan a x=url
-            // alternativa bi bila da se u slucaju 403 errora pozove funkcija ispocetka sa 3*index delay, ali me nesto mrzi 
-            .SelectMany(x => Observable.FromAsync(async () =>
+        .Select((url) => Observable.FromAsync(async () =>
             {
                 cts.Token.ThrowIfCancellationRequested();
-
                 var newRepos = new List<Repo>();
-
                 Console.WriteLine($"Fetching {url} on thread {Thread.CurrentThread.ManagedThreadId}");
 
                 var response = await client.GetAsync(url);
-                //Console.WriteLine(response.Headers);
                 response.EnsureSuccessStatusCode();
+                //Console.WriteLine(response.Headers);
                 var content = await response.Content.ReadAsStringAsync();
                 //Console.WriteLine(content);
                 dynamic repos = JsonConvert.DeserializeObject<dynamic>(content).items;
                 var numberOfRepos = JsonConvert.DeserializeObject<dynamic>(content).total_count;
-
-
                 //Console.WriteLine($"Number of repos on thread: {Thread.CurrentThread.ManagedThreadId}: {numberOfRepos} \n");
 
                 foreach (var repo in repos)
@@ -62,7 +62,8 @@ app.MapGet("/api", async (string topic, int pageLimit, int perPage) =>
                 return newRepos;
             })
             .SubscribeOn(TaskPoolScheduler.Default)
-        ));
+        )
+        .Merge(maxConcurrent: 5);
 
     var allRepos = new ConcurrentBag<Repo>();
 

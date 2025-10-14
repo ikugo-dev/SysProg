@@ -1,4 +1,5 @@
 using System.Text.RegularExpressions;
+using System.Reactive.Linq;
 
 public class Helper
 {
@@ -10,8 +11,6 @@ public class Helper
         var url = $"https://api.github.com/search/repositories?q=topic:{Uri.EscapeDataString(topic)}+fork:true&per_page={perPage}";
 
         var response = await client.GetAsync(url);
-        Console.WriteLine(response);
-
 
         if (response.Headers.TryGetValues("Link", out IEnumerable<string> headerValues))
         {
@@ -38,7 +37,8 @@ public class Helper
             {
                 string newurl = $"https://api.github.com/search/repositories?q="
                     + $"topic:{Uri.EscapeDataString(topic)}"
-                    + $"+fork:true&per_page={perPage}"
+                    + $"+fork:true"
+                    + $"&per_page={perPage}"
                     + $"&page={i}";
                 links.Add(newurl);
             }
@@ -46,4 +46,3 @@ public class Helper
         return links;
     }
 }
-
