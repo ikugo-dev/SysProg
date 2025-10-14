@@ -44,8 +44,9 @@ app.MapGet("/api", async (string topic, int pageLimit, int perPage) =>
                 //Console.WriteLine(response.Headers);
                 var content = await response.Content.ReadAsStringAsync();
                 //Console.WriteLine(content);
-                dynamic repos = JsonConvert.DeserializeObject<dynamic>(content).items;
-                var numberOfRepos = JsonConvert.DeserializeObject<dynamic>(content).total_count;
+                var apiData = JsonConvert.DeserializeObject<dynamic>(content);
+                var repos = apiData!.items;
+                var numberOfRepos = apiData!.total_count;
                 //Console.WriteLine($"Number of repos on thread: {Thread.CurrentThread.ManagedThreadId}: {numberOfRepos} \n");
 
                 foreach (var repo in repos)
