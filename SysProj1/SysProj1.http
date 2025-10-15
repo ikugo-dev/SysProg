@@ -1,6 +1,0 @@
-@ADRESS = http://localhost:50505
-
-GET {{ADRESS}}/api/
-Accept: application/json
-
-###
