@@ -5,9 +5,9 @@ public class Server
     private bool _isRunning;
     private readonly HttpListener _listener = new();
     private Thread? _listenerThread;
-    private readonly Action<HttpListenerContext> _processRequest;
+    private readonly Action<HttpListenerContext> _handleRequest;
 
-    public Server(Action<HttpListenerContext> processRequest) => _processRequest = processRequest;
+    public Server(Action<HttpListenerContext> processRequest) => _handleRequest = processRequest;
 
     public void Start(string port = "5050")
     {
@@ -32,12 +32,13 @@ public class Server
 
     private void ListenLoop()
     {
+        ThreadPool.SetMaxThreads(10, 10);
         try
         {
             while (_isRunning)
             {
                 var context = _listener.GetContext();
-                ThreadPool.QueueUserWorkItem(_ => _processRequest(context));
+                ThreadPool.QueueUserWorkItem(_ => _handleRequest(context));
             }
         }
         catch (Exception)
