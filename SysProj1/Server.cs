@@ -24,6 +24,7 @@ public class Server
     public void Stop()
     {
         if (!_isRunning) return;
+
         _isRunning = false;
         _listener.Stop();
         _listenerThread?.Join();
@@ -32,12 +33,15 @@ public class Server
 
     private void ListenLoop()
     {
-        ThreadPool.SetMaxThreads(10, 10);
+        ThreadPool.SetMaxThreads(10, 0);
         try
         {
             while (_isRunning)
             {
                 var context = _listener.GetContext();
+                // Thread t = new(() => _handleRequest(context));
+                // t.Start();
+                Console.WriteLine($"{DateTime.Now.TimeOfDay}: {context.Request.HttpMethod} {context.Request.Url}");
                 ThreadPool.QueueUserWorkItem(_ => _handleRequest(context));
             }
         }

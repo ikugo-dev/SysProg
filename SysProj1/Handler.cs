@@ -29,11 +29,17 @@ public class Handler
             return;
         }
 
-        if (!File.Exists(inputFileName)) // pretvori u rekurzivnu proveru ?
+        string inputFilePath = Directory.GetFiles(
+            Directory.GetCurrentDirectory(),
+            inputFileName,
+            SearchOption.AllDirectories
+        ).FirstOrDefault("");
+        if (inputFilePath == "")
         {
             WriteResponse(context.Response, 404, $"File {inputFileName} doesn't exist.");
             return;
         }
+        // Console.WriteLine($"Found {inputFileName} at: {inputFilePath}");
 
         if (_cache.TryGetValue(inputFileName, out string? cachedHash))
         {
@@ -44,7 +50,7 @@ public class Handler
         string hashedFileText;
         lock (_lockObj)
         {
-            byte[] inputBytes = File.ReadAllBytes(inputFileName);
+            byte[] inputBytes = File.ReadAllBytes(inputFilePath);
             if (inputBytes.Length == 0)
             {
                 WriteResponse(context.Response, 404, "File can't be empty");
@@ -65,5 +71,6 @@ public class Handler
         writer.Write(message);
         writer.Flush();
         response.Close();
+        Console.WriteLine($"{DateTime.Now.TimeOfDay}: {statusCode} {message}");
     }
 }

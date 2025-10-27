@@ -4,8 +4,10 @@ public class Program
     {
         Handler handler = new();
         Server server = new(handler.Handle);
-        server.Start("5050");
-        Console.WriteLine("Press any button to quit.");
+        const string port = "5050";
+        server.Start(port);
+        Console.WriteLine($"API on: http://localhost:{port}/api/");
+        Console.WriteLine("Press [Enter] to quit.");
         Console.ReadLine();
         server.Stop();
     }
