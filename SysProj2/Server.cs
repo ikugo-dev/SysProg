@@ -33,16 +33,13 @@ public class Server
 
     private void ListenLoop()
     {
-        ThreadPool.SetMaxThreads(10, 10);
         try
         {
             while (_isRunning)
             {
                 var context = _listener.GetContext();
                 Console.WriteLine($"{DateTime.Now.TimeOfDay}: {context.Request.HttpMethod} {context.Request.Url}");
-                // Thread t = new(() => _handleRequest(context));
-                // t.Start();
-                ThreadPool.QueueUserWorkItem(_ => _handleRequest(context));
+                Task.Run(() => _handleRequest(context));
             }
         }
         catch (Exception)
